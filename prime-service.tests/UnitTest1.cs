@@ -1,8 +1,9 @@
-using Xunit;
+using NUnit.Framework;
 using Prime.Services;
 
 namespace Prime.UnitTests.Services
 {
+    [TestFixture]
     public class PrimeService_IsPrimeShould
     {
         private readonly PrimeService _primeService;
@@ -12,12 +13,12 @@ namespace Prime.UnitTests.Services
             _primeService = new PrimeService();
         }
 
-        [Fact]
+        [Test]
         public void ReturnFalseGivenValueOf1()
         {
             var result = _primeService.IsPrime(1);
 
-            Assert.False(result, "1 should not be prime");
+            Assert.IsTrue(result, "1 should not be prime");
         }
     }
 }
